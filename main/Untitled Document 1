@@ -1,0 +1,122 @@
+1. How to remove only part of modifications in a some of the modified file using git checkout ?
+
+Sol:  (use "git checkout -- <file>..." to discard changes in working directory)
+
+
+2. How to add only part of the modifications in a file using git add ?
+
+Sol: (use "git add -- <file>..." to add changes in working directory)
+
+
+3. What is meant by staged and not-staged changes ?
+
+Sol: Staged means that you have marked a modified file in its current version to go into your next commit snapshot. Unstaged or not-staged changes are changes that are not tracked by the Git. For example, if you copy a file or modify the file. Git maintains a staging area(also known as index) to track changes that go in your next commit.
+
+
+4. How to see staged content and not-staged content in a repo ?
+
+Sol: * Go to the particular Git repository.
+     * Check the repository list of content.
+     * Update and add a file to the staging area.
+     * Run the “$ git status -v” or “$ git diff –cached” command to display changes.
+
+
+5. How to stash only part of modifications in some of the modified files using git stash ?
+
+Sol: In these cases, the "git stash -u" option (or --include-untracked) helps to stash the untracked files.
+
+
+6. If  multiple file are staged how to un-stage some of those files ?
+
+Sol: The most effortless way to unstage files on Git is by using the “git reset” command and specify the file you want to unstage.
+"$ git reset <commit> -- <path>"
+
+
+7. How to un-stage only a part of the staged file ?
+
+Sol: The git restore command is perfect when you have already added a file to the Staging Area and then changed your mind:
+"$ git restore --staged myFile.js"
+
+8. How to apply a stash? How to remove a stash without applying it ? 
+
+Sol: git stash apply [--index] [-q | --quiet] [<stash>]
+to remove a stash without applying it, 
+  1. checkout the stash to a new branch
+  2. checkout the targeted files
+  3. stash again
+  4. delete the branch
+  
+  
+ 9. In a repo, make some changes in files. Lets name these changes s1. Now stash these changes. Now, make some more changes. stash these new changes also. Now, is there a way to apply only the s1 changes, without applying the later changes and without dropp-ing anything from the stash ? 
+ 
+ Sol: git revert is a safe method to apply only the s1 changes, without applying the later changes and without dropp-ing anything from the stash 
+ 
+10. Create 2 different branches in a repo. In both the branches, make different changes, to the same file, in same line number. Now merge these 2 branches. Did they merge automatically ? What did you do to merge them ?
+
+Sol: it give conflicts while merging,so we have to first choose between current change and incoming changes, what's suits us best and then we can "git add ." the changes and the we can commit those changes.
+
+
+11. In a repo, make changes in some file. Once done, stash these changes. Now, open the same file and make different changes, but in the same line as before. Now, try to pop the stash back. Did it work smoothly and automatically ? How did you solve it ? 
+
+Sol: we can use "git stash pop"  to remove or throw away the latest or the topmost stash.
+  
+  
+12. What are commit-messages ?
+
+Sol: A commit message explains what change you made to your project. It is greatly important to learn how to make a good commit message no matter if it is a personal or professional project.
+
+
+13. What is the format of a commit-message ?
+
+Sol: git commit -m "some clear message".
+
+
+14: How to edit the last git commit-message ?
+
+Sol: git commit --amend and press Enter. In your text editor, edit the commit message, and save the commit.
+
+
+15. How to add more files or modifications to last git commit-message ? 
+
+Sol: git commit --amend to make modifications to the most recent commit. Use git rebase to combine commits and modify history of a branch.
+
+
+16. How to see list of logs in the current repo ?
+
+Sol: git log --list to see list of logs in the current repo.
+
+
+17. How to see log along with changes in the file ?
+
+Sol: git log <file>
+
+
+18. Is there a way to see short (without details) logs ?
+
+Sol: git log --oneline
+
+
+19. In the short version of the logs, which part of the commit-message is actually visible ?
+
+Sol: displays the first line of each commit message.
+
+
+20. How to see logs of changes of only one file or folder/dir ?
+
+Sol: git log -- path/to/folder
+
+
+21. How to see logs of changes from one branch only ?
+
+Sol: git log <branch-name> or git log –oneline <branch-name>
+
+
+22. What is HEAD ?
+
+Sol: When working with Git, only one branch can be checked out at a time - and this is what's called the "HEAD" branch. o referred to as the "active" or "current" branch.
+
+23. How to remove last commit without removing the changes from memory ?
+
+Sol: git revert [hash],revert will create a new commit that inverses the changes specified.
+
+
